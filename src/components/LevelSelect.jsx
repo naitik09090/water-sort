@@ -402,22 +402,11 @@ export default function LevelSelect({ onSelect, onBack, currentLvl = -1 }) {
             <div style={{
                 width: "100%", maxWidth: 680,
                 display: "flex", alignItems: "center",
-                justifyContent: "space-between",
                 marginBottom: "clamp(14px,2.5vw,24px)",
                 position: "relative", zIndex: 2,
             }}>
-                <button id="ws-back-ls" onClick={handleBack} style={{
-                    padding: "7px 16px", borderRadius: 40,
-                    border: "1.5px solid rgba(255,255,255,.2)",
-                    background: "rgba(255,255,255,.05)",
-                    color: "rgba(255,255,255,.6)",
-                    fontSize: "clamp(11px,1.8vw,14px)", fontWeight: 700,
-                    cursor: "pointer", backdropFilter: "blur(6px)",
-                    letterSpacing: ".05em", fontFamily: "inherit",
-                    transition: "all .2s",
-                }}>← Back</button>
 
-                <div style={{ textAlign: "center", flex: 1, padding: "0 12px" }}>
+                <div style={{ textAlign: "center", flex: 1 }}>
                     <h1 style={{
                         fontSize: "clamp(22px,5vw,40px)",
                         fontWeight: 900, margin: "0 0 3px",
@@ -434,7 +423,6 @@ export default function LevelSelect({ onSelect, onBack, currentLvl = -1 }) {
                         40 Levels · Choose Your Challenge
                     </p>
                 </div>
-                <div style={{ width: 76 }} />
             </div>
 
             {/* ═══════════════ TIER BADGES ═══════════════ */}
