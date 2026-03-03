@@ -1,12 +1,12 @@
 <div align="center">
 
 ```
-██╗    ██╗ █████╗ ████████╗███████╗██████╗     ███████╗ ██████╗ ██████╗ ████████╗
-██║    ██║██╔══██╗╚══██╔══╝██╔════╝██╔══██╗    ██╔════╝██╔═══██╗██╔══██╗╚══██╔══╝
-██║ █╗ ██║███████║   ██║   █████╗  ██████╔╝    ███████╗██║   ██║██████╔╝   ██║   
-██║███╗██║██╔══██║   ██║   ██╔══╝  ██╔══██╗    ╚════██║██║   ██║██╔══██╗   ██║   
-╚███╔███╔╝██║  ██║   ██║   ███████╗██║  ██║    ███████║╚██████╔╝██║  ██║   ██║   
- ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
+                               ██╗    ██╗ █████╗ ████████╗███████╗██████╗     ███████╗ ██████╗ ██████╗ ████████╗
+                               ██║    ██║██╔══██╗╚══██╔══╝██╔════╝██╔══██╗    ██╔════╝██╔═══██╗██╔══██╗╚══██╔══╝
+                               ██║ █╗ ██║███████║   ██║   █████╗  ██████╔╝    ███████╗██║   ██║██████╔╝   ██║   
+                               ██║███╗██║██╔══██║   ██║   ██╔══╝  ██╔══██╗    ╚════██║██║   ██║██╔══██╗   ██║   
+                               ╚███╔███╔╝██║  ██║   ██║   ███████╗██║  ██║    ███████║╚██████╔╝██║  ██║   ██║   
+                                ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
 ```
 
 ### 💧 *Sort the Colours · Fill the Tubes* 💧
@@ -57,7 +57,7 @@
 | Feature | Description |
 |---|---|
 | 🎨 **12 Vibrant Colours** | Beautifully rendered colour palette for challenging puzzles |
-| 🧩 **100+ Levels** | Progressively challenging levels from beginner to expert |
+| 🧩 **40 Levels** | Progressively challenging levels from beginner to expert |
 | 💫 **Smooth Animations** | Fluid pour animations with glowing arc dot effects |
 | 🏆 **Win Celebrations** | Confetti burst + glowing win popup on level completion |
 | 🔓 **Level Progression** | Unlock new levels as you complete each stage |
@@ -182,11 +182,5 @@ Made with 💧 and a lot of ☕ &nbsp;by **[Naitik](https://github.com/naitik090
 <br/>
 
 ⭐ **Star this repo** if you enjoyed the game!
-
-<br/>
-
-```
- 💧   💧   💧   💧   💧   💧   💧   💧
-```
 
 </div>

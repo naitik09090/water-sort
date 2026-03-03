@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 /* ── Palette (same as game) ── */
 const PALETTE = [
@@ -272,7 +273,12 @@ function LevelCard({ levelNum, tier, cfg, unlocked, isCurrent, isNextLocked, onC
     );
 }
 
-export default function LevelSelect({ onSelect, onBack, currentLvl = -1 }) {
+export default function LevelSelect() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    // currentLvl is passed via router state when coming back from game
+    const currentLvl = location.state?.currentLvl ?? -1;
+
     const [ready, setReady] = useState(false);
     const [leaving, setLeaving] = useState(false);
     const [page, setPage] = useState(() => Math.floor(Math.max(0, currentLvl) / 20));
@@ -297,11 +303,11 @@ export default function LevelSelect({ onSelect, onBack, currentLvl = -1 }) {
 
     function handleSelect(idx) {
         setLeaving(true);
-        setTimeout(() => onSelect(idx), 380);
+        setTimeout(() => navigate(`/game/${idx}`), 380);
     }
     function handleBack() {
         setLeaving(true);
-        setTimeout(onBack, 380);
+        setTimeout(() => navigate("/"), 380);
     }
 
     return (

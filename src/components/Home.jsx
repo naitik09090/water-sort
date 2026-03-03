@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 /* ── colour palette used across decorations ── */
 const PALETTE = [
@@ -91,7 +92,8 @@ function DecoTube({ colors, x, delay, bottom = "5%" }) {
     );
 }
 
-export default function Home({ onPlay }) {
+export default function Home() {
+    const navigate = useNavigate();
     const [ready, setReady] = useState(false);
     const [leaving, setLeaving] = useState(false);
     const [btnHover, setBtnHover] = useState(false);
@@ -163,7 +165,7 @@ export default function Home({ onPlay }) {
 
     function handlePlay() {
         setLeaving(true);
-        setTimeout(onPlay, 480);
+        setTimeout(() => navigate("/levels"), 480);
     }
 
     return (

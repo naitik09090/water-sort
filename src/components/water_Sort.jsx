@@ -1,4 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 /* ══════════════════════════════════════════════════════════════
    CONSTANTS
@@ -853,7 +854,11 @@ function btnStyle(bg, color, border) {
 /* ══════════════════════════════════════════════════════════════
    MAIN GAME
 ══════════════════════════════════════════════════════════════ */
-export default function WaterSortGame({ initialLevel = 0, onBack, onLevelChange }) {
+export default function WaterSortGame() {
+    const { lvl } = useParams();
+    const navigate = useNavigate();
+    const initialLevel = Math.max(0, Math.min(parseInt(lvl ?? "0", 10), LEVELS.length - 1));
+
     const [lvlIdx, setLvlIdx] = useState(initialLevel);
     const [tubes, setTubes] = useState(() => gen(3, 2));
     const [prev, setPrev] = useState(() => gen(3, 2));
@@ -1182,26 +1187,24 @@ export default function WaterSortGame({ initialLevel = 0, onBack, onLevelChange 
                         if (nextUnlock > cur) {
                             localStorage.setItem("ws_unlocked", nextUnlock.toString());
                         }
-                        // Notify App so startLvl stays in sync (important for LevelSelect highlight)
-                        if (onLevelChange) onLevelChange(nextIdx);
+                        // Navigate to next level URL
+                        navigate(`/game/${nextIdx}`, { replace: true });
                         setLvlIdx(nextIdx);
                     }}
-                    onLevels={onBack}
+                    onLevels={() => navigate("/levels", { state: { currentLvl: lvlIdx } })}
                 />
             )}
 
             {/* ═══ HEADER ═══ */}
             <div style={{ width: "100%", maxWidth: 960, display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "clamp(10px,2.2vw,20px)", position: "relative", zIndex: 1 }}>
-                {onBack && (
-                    <button id="ws-back" onClick={onBack} style={{
-                        padding: "7px 16px", borderRadius: 40,
-                        border: "1.5px solid rgba(255,255,255,.2)",
-                        background: "rgba(255,255,255,.05)", color: "rgba(255,255,255,.6)",
-                        fontSize: "clamp(10px,1.6vw,13px)", fontWeight: 700, cursor: "pointer",
-                        backdropFilter: "blur(6px)", letterSpacing: ".05em", fontFamily: "inherit",
-                        transition: "all .2s",
-                    }}>← Levels</button>
-                )}
+                <button id="ws-back" onClick={() => navigate("/levels", { state: { currentLvl: lvlIdx } })} style={{
+                    padding: "7px 16px", borderRadius: 40,
+                    border: "1.5px solid rgba(255,255,255,.2)",
+                    background: "rgba(255,255,255,.05)", color: "rgba(255,255,255,.6)",
+                    fontSize: "clamp(10px,1.6vw,13px)", fontWeight: 700, cursor: "pointer",
+                    backdropFilter: "blur(6px)", letterSpacing: ".05em", fontFamily: "inherit",
+                    transition: "all .2s",
+                }}>← Levels</button>
                 <div style={{ textAlign: "center", flex: 1 }}>
                     <h1 style={{
                         fontSize: "clamp(22px,5vw,42px)", fontWeight: 900, margin: "0 0 2px",
@@ -1217,7 +1220,7 @@ export default function WaterSortGame({ initialLevel = 0, onBack, onLevelChange 
                         {LEVELS[lvlIdx].icon} {LEVELS[lvlIdx].label} Mode
                     </p>
                 </div>
-                {onBack ? <div style={{ width: 72 }} /> : <div />}
+                <div style={{ width: 72 }} />
             </div>
 
             {/* ═══ STATS ═══ */}
